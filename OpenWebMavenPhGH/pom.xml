@@ -1,0 +1,271 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ximodante</groupId>
+  <artifactId>OpenWebMavenPhGH</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>OpenWebMavenPhGH</name>
+  <description>Migrating OpenWebMavenGH to Java 10 and ecliopse Photon</description>
+
+  
+  <properties>
+   
+    <failOnMissingWebXml>false</failOnMissingWebXml>
+    
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <maven.compiler.plugin>3.7.0</maven.compiler.plugin>
+    <maven.compiler.source>10</maven.compiler.source>
+    <maven.compiler.target>10</maven.compiler.target>
+    
+    
+    <hibernate.version>5.2.16.Final</hibernate.version>
+    <jaxb.version>2.3.0</jaxb.version>
+    <activation.version>1.2.0</activation.version>
+    <jackson.version>2.9.5</jackson.version>
+
+  </properties>
+  
+  <dependencies>
+  
+    <!-- 2018-04 Java Servlet API-->    
+    <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>4.0.1</version>
+      <scope>provided</scope>
+    </dependency>
+    
+         
+    <!-- 2018-03-29 JSF Mojarra 2.4.0 -->
+    <!-- https://mvnrepository.com/artifact/org.glassfish/javax.faces -->
+    <dependency>
+      <groupId>org.glassfish</groupId>
+      <artifactId>javax.faces</artifactId>
+      <version>2.4.0</version>
+    </dependency>
+    
+
+    <!-- 2018-02-28 Primefaces -->
+    <!-- https://mvnrepository.com/artifact/org.primefaces/primefaces -->
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>6.2</version>
+    </dependency>
+
+    <!-- Primefaces Themes 2013-04 -->
+    <!-- https://mvnrepository.com/artifact/org.primefaces.themes/all-themes -->
+    <dependency>
+      <groupId>org.primefaces.themes</groupId>
+      <artifactId>all-themes</artifactId>
+      <version>1.0.10</version>
+    </dependency>
+
+    
+    <!-- 2018-04-24 Weld CDI for Tomcat with all dependencies included (does not fulfill all capabilities !!!) -->
+    <dependency>
+      <groupId>org.jboss.weld.servlet</groupId>
+      <artifactId>weld-servlet-shaded</artifactId>
+      <version>3.0.4.Final</version>
+    </dependency>
+    
+        
+    <!-- JPA & Postgres -->
+    <!-- 2017-10 Javassist required by Hibernate in some computers -->
+    <!-- https://mvnrepository.com/artifact/org.javassist/javassist -->
+     <dependency>
+      <groupId>org.javassist</groupId>
+      <artifactId>javassist</artifactId>
+      <version>3.22.0-GA</version>
+    </dependency>
+    
+    <!-- JPA 2.1 Provider -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    
+    <!-- Envers for auditing the database -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-envers -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-envers</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    
+    <!-- Hibernate Testing !!! -->
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-testing -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-testing</artifactId>
+      <version>${hibernate.version}</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!-- 2018-05 Hibernate Bean Validator Optional Doesn't follow the same versioning !!-->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.0.10.Final</version>
+    </dependency>
+    
+    <!-- 2018-03 PostgreSQL -->
+    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.2</version>
+    </dependency>  
+     
+    <!-- 2018-05 Lombok for setters and getters -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.16.20</version>
+    </dependency>
+    
+       
+    <!-- 2017-10 Apache commons codec for md5 digest -->
+    <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.11</version>
+    </dependency>
+    
+    
+    
+    <!-- 2017-11 Apache commons lang3 with stringUtils --> 
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.7</version>
+    </dependency>
+
+    <!--  2017-04 Evaluate expressions Apache-commons-JEXL -->
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-jexl3 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-jexl3</artifactId>
+      <version>3.1</version>
+    </dependency>
+    
+    <!-- 2016-09 Apache commons BeanUtils --> 
+    <!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+    <dependency>
+     <groupId>commons-beanutils</groupId>
+     <artifactId>commons-beanutils</artifactId>
+     <version>1.9.3</version>
+    </dependency>
+
+    <!-- 2018-04 Tomcat database connection pooling package--> 
+    <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-dbcp -->
+    <dependency>
+      <groupId>org.apache.tomcat</groupId>
+      <artifactId>tomcat-dbcp</artifactId>
+      <version>9.0.8</version>
+    </dependency>
+   
+ 
+
+    <!-- 2008-02 Java CSV csvreader & csvwriter -->
+    <!-- https://mvnrepository.com/artifact/net.sourceforge.javacsv/javacsv -->
+    <dependency>
+      <groupId>net.sourceforge.javacsv</groupId>
+      <artifactId>javacsv</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    
+    
+    <!--BEGIN Java 9 references to JEE  not included in JDK9-->
+    <!-- 2017-07 JAXB API -->
+    <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>${jaxb.version}</version>
+    </dependency>
+    
+    <!-- 2017-08 JAXB Implementation -->
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>${jaxb.version}</version>
+    </dependency>
+        
+    <!-- 2017-08 Old JAXB Core -->
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>${jaxb.version}</version>
+    </dependency>
+    
+    <!-- 2017-09-06 Activation API -->
+    <!-- https://mvnrepository.com/artifact/javax.activation/javax.activation-api -->
+    <dependency>
+      <groupId>javax.activation</groupId>
+      <artifactId>javax.activation-api</artifactId>
+      <version>${activation.version}</version>
+    </dependency>
+
+    <!-- 2017-09-06 Activation Implementation -->
+    <!-- https://mvnrepository.com/artifact/com.sun.activation/javax.activation -->
+    <dependency>
+      <groupId>com.sun.activation</groupId>
+      <artifactId>javax.activation</artifactId>
+      <version>${activation.version}</version>
+    </dependency>
+
+    <!-- END Java 9 references to JEE  not included in JDK9-->
+
+
+
+    <!-- YAML (and JSON And XML ) dependencies -->
+    <!-- 2018-03-26 Jackson Databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    
+    <!-- 2018-03-26 Jackson Dataformat YAML -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    
+    <!-- 2018-03-26 Jackson Dataformat XML -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+    
+    <!-- END YAML dependencies -->
+    
+  </dependencies>
+
+
+  <!--  to load from primefaces maven repository !! -->
+  <!-- see https://stackoverflow.com/questions/21705509/primefaces-all-themes-v-1-0-10-installation -->
+  <repositories>
+
+    <repository>
+      <id>prime-repo</id>
+      <name>PrimeFaces Maven Repository</name>
+      <url>http://repository.primefaces.org</url>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+  
+  
+</project>

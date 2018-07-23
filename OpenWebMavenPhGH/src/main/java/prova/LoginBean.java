@@ -19,11 +19,13 @@ public class LoginBean implements Serializable{
  
  
  public String login () {
+ 
+  var a=user;	 
   if (user.equalsIgnoreCase("ximo") && password.equals("password")) {
-   return "test-application-page";
+    return "test-application-page";
   } else {
-   myError="Bad User/password";
-   return "test-login-page";
+    myError="Bad User/password";
+    return "test-login-page";
   }
  }
 

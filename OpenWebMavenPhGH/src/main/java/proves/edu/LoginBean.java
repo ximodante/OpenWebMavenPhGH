@@ -1,4 +1,4 @@
-package prova;
+package proves.edu;
 
 import java.io.Serializable;
 

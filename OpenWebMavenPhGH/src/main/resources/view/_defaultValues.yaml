@@ -1,0 +1,14 @@
+formActions:
+  - { name: New,    parent: form, icon: fa-plus,       roleGroup: gnew,  type: Button }
+  - { name: Edit,   parent: form, icon: fa-edit,       roleGroup: gedit, type: Button }
+  - { name: Copy,   parent: form, icon: fa-copy,       roleGroup: gnew,  type: Button }
+  - { name: Delete, parent: form, icon: fa-trash,      roleGroup: gdel,  type: Button }
+  - { name: Search, parent: form, icon: fa-binoculars, roleGroup: glook, type: Button }   
+  
+roleGroups:
+  - { name: gadmin, roles: [admin] }
+  - { name: gdel,   roles: [admin, del ] }
+  - { name: gedit,  roles: [admin, del, edit ] }
+  - { name: gnew,   roles: [admin, del, edit, new ] }
+  - { name: glook,  roles: [admin, del, edit, new, look ] }  
+  
